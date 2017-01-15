@@ -1,14 +1,14 @@
-<h1>Lista pizz</h1>
+<h1>Lista składników</h1>
 
 <table class="table">
-<tr><th>Lp.</th><th>Nazwa</th><th>Info</th><th>Operacje</th></tr>
+<tr><th>Lp.</th><th>Nazwa</th><th>Pizza</th><th>Jarski</th></tr>
 {% for p in object_list %}
 <tr>
     <td>{{ forloop.counter }}</td>
     <td>{{ p.nazwa }}</td>
-    <td>{{ p.autor.username }} ({{ p.data }})</td>
-    <td>
-        {% if p.autor.username == user.username %}
+    <td>{{ p.pizza.nazwa}}</td>
+    <td>{{ p.jarski}}</td>
+    <td>{% if p.autor.username == user.username %}
             <a href="#">Edytuj</a> &bull;
             <a href="#">Usuń</a>
         {% endif %}

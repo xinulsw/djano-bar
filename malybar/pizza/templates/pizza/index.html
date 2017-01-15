@@ -1,20 +1,13 @@
-{% extends "pizza/base.html" %}
+<h1>Mały Bar</h1>
+<p>{{ komunikat }}</p>
+<ul>
+  {% if not user.is_authenticated %}
+    <li><a href="{% url 'auth_login' %}">Zaloguj się</a></li>
+    <li><a href="{% url 'registration_register' %}">Utwórz konto</a></li>
+  {% else %}
+    <li><a href="{% url 'auth_logout' %}">Wyloguj się</a></li>
+  {% endif %}
+</ul>
 
-{% block tytul_h1 %}
-  Mały Bar
-{% endblock %}
-
-{% block tresc %}
-  <p>{{ komunikat }}</p>
-{% endblock %}
-
-{% block linki_ul %}
-  <li><a href="http://django-maly-bar.rtfd.io">Dokumentacja aplikacji</a></li>
-  <li><a href="https://www.djangoproject.com/">Django – web framework</a></li>
-  <li><a href="http://django.pl/">Polska strona Django</a></li>
-  <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
-  <li><a href="http://www.w3schools.com/bootstrap/">Bootstrap Tutorial
-  </a></li>
-  <li><a href="https://www.python.org/">Python</a></li>
-  <li><a href="http://python101.readthedocs.io/">Materiały Python 101</a></li>
-{% endblock %}
+<p><a href="{% url 'pizza:lista' %}">Lista pizz</a></p>
+<p><a href="{% url 'pizza:listas' %}">Lista składników</a></p>

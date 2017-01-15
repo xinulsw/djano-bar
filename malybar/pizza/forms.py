@@ -21,6 +21,6 @@ SkladnikiFormSet = inlineformset_factory(
     validate_max=True,
     validate_min=True,
     extra=2,
-    can_delete=True,
     fields=('nazwa', 'jarski')
 )
+

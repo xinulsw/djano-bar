@@ -4,8 +4,6 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-
 
 class Pizza(models.Model):
     LARGE = 'L'
@@ -21,7 +19,7 @@ class Pizza(models.Model):
     rozmiar = models.CharField(max_length=1, choices=ROZMIARY, default=LARGE)
     cena = models.DecimalField(max_digits=5, decimal_places=2)
     data = models.DateField('dodano', auto_now_add=True)
-    autor = models.ForeignKey(User)
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __unicode__(self):
         return u'%s' % (self.nazwa)
@@ -39,14 +37,8 @@ class Skladnik(models.Model):
         help_text=u"Zaznacz, jeżeli składnik jest odpowiedni dla"
         u" wegetarian")
 
-    def czy_jarski(self):
-        if self.jarski:
-            return 'jarski'
-        return 'niejarski'
-
     def __unicode__(self):
         return u'%s' % (self.nazwa)
 
     class Meta:
-        verbose_name = "składnik"
-        verbose_name_plural = "składniki"
+        verbose_name_plural = u'składniki'

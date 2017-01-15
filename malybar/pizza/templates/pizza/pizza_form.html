@@ -1,10 +1,5 @@
-{% extends "pizza/base.html" %}
+<h1>Dodaj pizzę</h1>
 
-{% block tytul_h1 %}
-    Dodaj pizzę
-{% endblock %}
-
-{% block tresc %}
 <form action="." method="post" id="pform">
     {% csrf_token %}
     {{ form.as_p }}
@@ -15,8 +10,7 @@
     {% for skl in skladniki %}
     {{ skl.id }}
         <div class="{{ skladniki.prefix }}">
-            <span>{{ forloop.counter }})&nbsp;</span>
-            {{ skl.nazwa.errors }}
+            <span>{{ forloop.counter }})&nbsp;</span>       {{ skl.nazwa.errors }}
             {{ skl.jarski.errors }}
             {{ skl.nazwa.label_tag }} {{ skl.nazwa }}
             {{ skl.jarski.label_tag }} {{ skl.jarski }}
@@ -24,4 +18,4 @@
     {% endfor %}
     <br /><input type="submit" value="Zapisz">
 </form>
-{% endblock %}
+<h1>{{imie}}</h1>
