@@ -1,0 +1,25 @@
+{% extends "pizza/base.html" %}
+
+{% block tytul_h1 %}
+  Lista pizz
+{% endblock %}
+
+{% block tresc %}
+<table class="table">
+<tr><th>Lp.</th><th>Nazwa</th><th>Info</th><th>Operacje</th></tr>
+{% for p in object_list %}
+<tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ p.nazwa }}</td>
+    <td>{{ p.autor.username }} ({{ p.data }})</td>
+    <td>
+        <a href="{% url 'pizza:info' p.id %}">Info</a>
+        {% if p.autor.username == user.username %}
+            &bull; <a href="{% url 'pizza:edytuj' p.id %}">Edytuj</a> &bull;
+            <a href="{% url 'pizza:usun' p.id %}">Usuń</a>
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
