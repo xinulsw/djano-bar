@@ -1,4 +1,12 @@
-<h1>Mały Bar</h1>
+{% extends "pizza/base.html" %}
+
+{% block tytul_head %}
+  Django – przykładowa aplikacja Mały Bar
+{% endblock %}
+
+{% block tytul_h1 %}Mały Bar{% endblock %}
+
+{% block tresc %}
 <p>{{ komunikat }}</p>
 <ul>
   {% if not user.is_authenticated %}
@@ -10,5 +18,4 @@
     <li><a href="{% url 'auth_logout' %}">Wyloguj się</a></li>
   {% endif %}
 </ul>
-
-
+{% endblock %}

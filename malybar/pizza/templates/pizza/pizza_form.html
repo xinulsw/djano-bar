@@ -1,4 +1,13 @@
-<h1>Dodaj pizzę</h1>
+{% extends "pizza/base.html" %}
+
+{% block tytul_head %}
+  Django – Mały bar – Dodawanie Pizz
+{% endblock %}
+
+{% block tytul_h1 %}Dodaj pizzę{% endblock %}
+
+{% block tresc %}
+<h1></h1>
 
 <form action="." method="post" id="pform">
     {% csrf_token %}
@@ -16,6 +25,6 @@
             {{ skl.jarski.label_tag }} {{ skl.jarski }}
         </div>
     {% endfor %}
-    <br /><input type="submit" value="Zapisz">
+    <br /><input type="submit" value="Zapisz" class="btn btn-default btn-primary">
 </form>
-<h1>{{imie}}</h1>
+{% endblock %}

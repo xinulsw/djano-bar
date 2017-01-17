@@ -1,0 +1,24 @@
+{% extends 'pizza/base.html' %}
+
+{% block tytul_h1 %}Pizza – info{% endblock %}
+
+{% block tresc %}
+
+<h2>{{ object.nazwa }}</h2>
+
+<table class="table table-striped">
+  <tr><td>Opis:</td><td>{{ object.opis }}</td></tr>
+  <tr><td>Rozmiar:</td><td>{{ object.rozmiar }}</td></tr>
+  <tr><td>Cena:</td><td>{{ object.cena }}</td></tr>
+  <tr><td>Data:</td><td>{{ object.data }}</td></tr>
+  <tr><td>Autor:</td><td>{{ object.autor.username }}</td></tr>
+</table>
+
+<h3>Składniki:</h3>
+    <ol>
+    {% for s in skladniki %}
+      <li>{{ s.nazwa }} ( {{ s.czy_jarski }} )</li>
+    {% endfor %}
+    </ol>
+
+{% endblock %}

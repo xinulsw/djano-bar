@@ -40,5 +40,10 @@ class Skladnik(models.Model):
     def __unicode__(self):
         return u'%s' % (self.nazwa)
 
+    def czy_jarski(self):
+        if self.jarski:
+            return 'jarski'
+        return 'niejarski'
+
     class Meta:
         verbose_name_plural = u'składniki'
